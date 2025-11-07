@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SnakeLadderBridgeLabz")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e24bd36a20e983d4bc6ca09733f7ab4fa8a38781")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4efff1f66b65aedaf8a575e26eed31fe0898e062")]
 [assembly: System.Reflection.AssemblyProductAttribute("SnakeLadderBridgeLabz")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SnakeLadderBridgeLabz")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
