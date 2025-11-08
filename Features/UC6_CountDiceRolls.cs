@@ -1,46 +1,48 @@
 using System;
-
-namespace SnakeLadderBridgeLabz.Features
+using System.Globalization;
+public class SnakeAndLadder
 {
-    public class UC6_CountDiceRolls
+    public static void Main(String[] args)
     {
-        public static void CountRolls()
+        Console.WriteLine("Player Starts From 0\n");
+        Console.WriteLine("Dice Range: 1 - 6");
+        Console.WriteLine("Options:\n 0 - No Play\n 1 - Ladder\n 2 - Snake\n");
+        int pos = 0;
+        int countD = 0;
+        Random r = new Random();
+        while (pos < 100)
         {
-            UC1_SinglePlayerStart.InitializeBoard();
-            int position = 0;
-            int diceCount = 0;
-            Random random = new Random();
-
-            var ladders = UC1_SinglePlayerStart.GetLadders();
-            var snakes = UC1_SinglePlayerStart.GetSnakes();
-
-            while (position != 100)
+            Console.WriteLine($"\nPlayer at {pos}");
+            int dice = r.Next(1, 7);
+            Console.WriteLine($"Dice Number: {dice}");
+            int option = r.Next(0, 3);
+            if (option == 0)
             {
-                diceCount++;
-                int dieRoll = random.Next(1, 7);
-                int option = random.Next(0, 3);
-
-                switch (option)
-                {
-                    case 1:
-                        if (position + dieRoll <= 100)
-                            position += dieRoll;
-                        if (ladders.ContainsKey(position))
-                            position = ladders[position];
-                        break;
-
-                    case 2:
-                        position -= dieRoll;
-                        if (position < 0) position = 0;
-                        if (snakes.ContainsKey(position))
-                            position = snakes[position];
-                        break;
-                }
-
-                Console.WriteLine($"UC6: Roll {diceCount}, Die={dieRoll}, Option={option}, Position={position}");
+                Console.WriteLine("Option: No Play — Player stays in the same position.");
             }
-
-            Console.WriteLine($"\nUC6: Player won after {diceCount} rolls!");
+            else if (option == 1)
+            {
+                int newPos = pos + dice;
+                if (newPos > 100)
+                {
+                    Console.WriteLine("Option: Ladder — Roll exceeds 100! Stay in the same position.");
+                }
+                else
+                {
+                    pos = newPos;
+                    Console.WriteLine($"Option: Ladder — Player moves ahead by {dice} to {pos}");
+                }
+                countD++;
+            }
+            else
+            {
+                pos -= dice;
+                if (pos < 0) pos = 0;
+                Console.WriteLine($"Option: Snake — Player moves behind by {dice} to {pos}");
+            }
         }
+
+        Console.WriteLine("\nPlayer reached exactly 100!");
+        Console.WriteLine($"Total Dice Rolls: {countD}");
     }
 }
