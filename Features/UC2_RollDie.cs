@@ -1,21 +1,13 @@
 using System;
-
-namespace SnakeLadderBridgeLabz.Features
+using System.Globalization;
+public class SnakeAndLadder
 {
-    public class UC2_RollDie
+    public static void Main(String[] args)
     {
-        public static void RollAndMove()
-        {
-            UC1_SinglePlayerStart.InitializeBoard();
-
-            int position = 0;
-            Random random = new Random();
-            int dieRoll = random.Next(1, 7);
-
-            Console.WriteLine($"\nUC2: Player rolled {dieRoll}");
-
-            position += dieRoll;
-            Console.WriteLine($"UC2: Player moved to {position}");
-        }
+        int pos = 0;
+        Console.WriteLine($"Player at {pos} ");
+        Random r = new Random();
+        int dice = r.Next(1, 7);
+        Console.WriteLine($"Dice Number: {dice}");
     }
 }
